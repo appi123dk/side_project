@@ -1,0 +1,49 @@
+{% set title = "제품리스트" %}
+{% extends "layout/base.html" %}
+ 
+{% block content -%}
+    {% include "layout/sidebar.html" %}
+    <div class="col-sm-10">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                {{product.name}}
+            </div>
+            <div class="panel-body">
+                <div style="padding-bottom: 10px">
+                    작성일 : {{ product.dateFormat(product.createdAt) }} <br/>
+                    가격 : {{ product.numberWithCommas(product.price) + " 원" }}
+                </div>
+
+                {% if product.thumbnail %}
+                    <p>
+                        <img src="{{ product.thumbnail }}" style="max-width: 100%"/>
+                    </p>
+                {% endif %}
+
+                {# | safe 는 nunjucks에서 제공하는 크로스 사이트 공격 해지 #}
+                {# summernote에서 작성한 코드에서 script를 제거하고 저장하는 등 방어를 추가적으로 진행 해야 함 #}
+                {{ product.description | safe }}
+                <hr/>
+                {% for memo in product.memos %}
+                    <li>
+                        {{ memo.contents }}
+                        (<a href="/admin/products/delete/{{product.id}}/{{memo.id}}">삭제</a>)
+                    </li>
+                {% endfor %}
+                <hr />
+                메모작성하기
+                <form action="" method="post">
+                    <textarea class="form-control" name="contents" required></textarea>
+                    <button class="btn btn-primary" style="margin-top: 10px">메모작성</button>
+                </form>
+            </div>
+        </div>
+    
+
+        <a href="/admin/products" class="btn btn-default">목록으로</a>
+        <a href="/admin/products/edit/{{ product.id }}" class="btn btn-primary">수정</a>
+    </div>
+
+
+
+{% endblock %}

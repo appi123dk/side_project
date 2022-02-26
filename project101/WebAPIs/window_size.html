@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Window-size practice</title>
+  <script src="./click_location.js" defer></script>
+  <style>
+    section {
+      background-color:aquamarine;
+      padding: 10px 30px;
+      display:inline-block;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
+    .flex-item {
+      width: 250px;
+      height: 250px;
+      margin: 5px;
+      background-color: bisque;
+    }
+
+    .flex-item.special {
+      background-color:brown;
+    }
+
+    .button-container {
+      display: flex;
+      position: fixed;
+      top: 0;
+      left: 1;
+      right: 0;
+    }
+
+    .flex-button {
+      margin: 5px;
+      background-color:cornsilk;
+    }
+  </style>
+</head>
+<body>
+  <div class="button-container">
+    <button class="flex-button scroll-by" type="button">Scroll by 100px</button>
+    <button class="flex-button scroll-to" type="button">Scroll to 100px</button>
+    <button class="flex-button scroll-special" type="button">Scroll into special</button>
+  </div>
+  <section>
+    <h2>Window.screen : <span class="window-screen">3230, 3233</span></h2>
+    <h2>Window.outer : <span class="window-outer">3230, 3233</span></h2>
+    <h2>Window.inner : <span class="window-inner">3230, 3233</span></h2>
+    <h2>documentElement.clientWidth: : <span class="document-screen">3230, 3233</span></h2>
+  </section>
+  <div class="container">
+    <div class="flex-item"></div>
+    <div class="flex-item"></div>
+    <div class="flex-item"></div>
+    <div class="flex-item"></div>
+    <div class="flex-item"></div>
+    <div class="flex-item"></div>
+    <div class="flex-item special"></div>
+    <div class="flex-item"></div>
+    <div class="flex-item"></div>
+    <div class="flex-item"></div>
+  </div>
+</body>
+
+<script>
+
+  function printSize(className, w, h) {
+    const span = document.querySelector(className);
+    span.innerHTML = `${w}, ${h}`;
+  }
+
+  function getSize() {
+    const screenWidth = window.screen.availWidth;
+    const screenHeight = window.screen.availHeight;
+    const outerWidth = window.outerWidth;
+    const outerHeight = window.outerHeight;
+    const innerWidth = window.innerWidth;
+    const innerHeight = window.innerHeight;
+
+    const body = document.querySelector('body');
+    const clientWidth = body.clientWidth;
+    const clientHeight = body.clientHeight;
+    printSize('.window-screen', screenWidth, screenHeight);
+    printSize('.window-outer', outerWidth, outerHeight);
+    printSize('.window-inner', innerWidth, innerHeight);
+    printSize('.document-screen', clientWidth, clientHeight);
+  }
+
+  function init() {
+    getSize();
+
+    window.addEventListener('resize', function () {
+      getSize();
+    });
+  }
+
+  init();
+
+</script>
+</html>

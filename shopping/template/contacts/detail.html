@@ -1,0 +1,48 @@
+{% set title = "개별 연락처 페이지" %}
+{% extends "layout/base.html" %}
+ 
+{% block content -%}
+    <h1 style="margin-bottom: 50px;">연락처 상세내역</h1>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            {{contact.id + ". " + contact.name}} 
+            ( 성별 : {% if contact.female %}
+            여성 {% else %} 남성
+            {% endif %} )
+        </div>
+        <div class="panel-body">
+            <div style="padding-bottom: 20px">
+                <ul style="margin-top: 10px;">
+                    <li>전화번호 : {{ contact.phone }}</li>
+                    <li>이메일 : {{ contact.email }}</li>
+                </ul>
+                <p class="text-right">작성일 : {{ contact.dateFormat(contact.createdAt) }}</p>
+            </div>
+        </div>
+        <div class="panel-footer" >
+            특이사항 : {{ contact.description }}
+            <hr />
+            코멘트
+                <ul>
+                {% for comment in contact.comments  %}
+                    <li>
+                        {{ comment.contents }}
+                        <a href="/contacts/lists/delete/{{contact.id}}/{{comment.id}}">(삭제)</a>
+                    </li>
+                {% endfor %}
+                </ul>
+            <hr />
+            코멘트 작성하기
+            <form action="" method="post">
+                <textarea class="form-control" name="contents" required></textarea>
+                <button class="btn btn-primary" style="margin-top: 10px">코멘트 작성</button>
+            </form>
+        </div>
+        
+    </div>
+
+    <a href="/contacts/lists" class="btn btn-default">목록으로</a>
+    <a href="/contacts/edit/{{ contact.id }}" class="btn btn-primary">수정</a>
+
+{% endblock %}

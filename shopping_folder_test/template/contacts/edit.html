@@ -1,0 +1,45 @@
+
+{% extends "layout/base.html" %}
+ 
+{% block content -%}
+    {# action을 비워두면 같은 URL에 POST로 날림, new/create 필요없음 #}
+    <h1 style="margin-bottom: 50px;">연락처 수정</h1>
+    <form action="" method="post">
+        <table class="table table-bordered">
+            <tr>
+                <th>이름</th>
+                <td><input type="text" name="name" class="form-control" value="{{ contact.name }}"/></td>
+            </tr>
+            <tr>
+                <th>전화번호</th>
+                <td><input type="text" name="phone" class="form-control" value="{{ contact.phone }}"/></td>
+            </tr>
+            <tr>
+                <th>이메일주소</th>
+                <td><input type="text" name="email" class="form-control" value="{{ contact.email }}"/></td>
+            </tr>
+            <tr>
+                <th>성별</th>
+                <td>
+                    <input type="radio" name="female" value="false" checked="checked"/> 남성
+                    <input type="radio" name="female" value="true"/> 여성
+                </td>
+            </tr>
+            
+            <tr>
+                <th>설명</th>
+                <td><input type="text" name="description" class="form-control" value="{{ contact.description }}"/></td>
+            </tr>
+        </table>
+        <button class="btn btn-warning">수정하기</button>
+    </form>
+
+{% endblock %}
+
+{% block javascript -%}
+
+    var female = {{ contact.female }};
+    $(":input:radio[name=female]:radio[value =" + female + "]").prop("checked",true);
+    console.log(female);
+    
+{% endblock %}

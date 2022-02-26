@@ -1,0 +1,39 @@
+{
+  "name": "shopping",
+  "version": "1.0.0",
+  "description": "쇼핑몰만들기 시작",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon -e js,html server.js",
+    "dev": "npx nodemon -e js,html server.js"
+  },
+  "keywords": [
+    "쇼핑몰"
+  ],
+  "author": "박경규",
+  "license": "ISC",
+  "dependencies": {
+    "connect-flash": "^0.1.1",
+    "connect-session-sequelize": "^6.1.1",
+    "cookie-parser": "^1.4.5",
+    "csurf": "^1.11.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-paginate": "^1.0.0",
+    "express-session": "^1.17.1",
+    "moment": "^2.24.0",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.2",
+    "mysql2": "^2.1.0",
+    "nunjucks": "^3.2.1",
+    "passport": "^0.4.1",
+    "passport-facebook": "^3.0.0",
+    "passport-kakao": "^1.0.0",
+    "passport-local": "^1.0.0",
+    "passport-naver": "^1.0.6",
+    "sequelize": "^4.42.0",
+    "sharp": "^0.25.2",
+    "socket.io": "^2.3.0",
+    "xss": "^1.0.6"
+  }
+}

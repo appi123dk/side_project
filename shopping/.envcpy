@@ -1,0 +1,20 @@
+DATABASE = "데이터베이스명"
+DB_USER = "아이디"
+DB_PASSWORD = "패스워드"
+DB_HOST = "DB호스트"
+
+FACEBOOK_APPID = "https://developers.facebook.com에서 추출"
+FACEBOOK_SECRETCODE = "https://developers.facebook.com에서 추출"
+
+NAVER_APPID = "NAVER 개발자에서 추출"
+NAVER_SECRETCODE = "NAVER 개발자에서 추출"
+
+KAKAO_APPID = "KAKAO 개발자에서 추출"
+
+
+SITE_DOMAIN = "나의 웹사이트 주소를 입력 ex) http://localhost:3000"
+
+SENDGRID_API_KEY = "Sendgrid 서비스에서 API키 발급"
+
+RECAPCHA_SITE_KEY = "https://www.google.com/recaptcha/admin/ 추출"
+RECAPCHA_SECRET_KEY = "https://www.google.com/recaptcha/admin/ 추출"

@@ -1,0 +1,37 @@
+{% set title = "새 제품 등록" %}
+{% extends "layout/base.html" %}
+ 
+{% block content -%}
+    {# action을 비워두면 같은 URL에 POST로 날림, new/create 필요없음 #}
+    <form action="" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+        <table class="table table-bordered">
+            <tr>
+                <th>썸네일</th>
+                <td><input type="file" name="thumbnail" class="form-control" /></td>
+            </tr>
+            <tr>
+                <th>제품명</th>
+                <td><input type="text" name="name" class="form-control"/></td>
+            </tr>
+            <tr>
+                <th>가격</th>
+                <td><input type="text" name="price" class="form-control"/></td>
+            </tr>
+            <tr>
+                <th>설명</th>
+                <td><textarea name="description" class="form-control" id="summernote"></textarea></td>
+            </tr>
+            
+        </table>
+        <button class="btn btn-primary">작성하기</button>
+    </form>
+ 
+ 
+ <!-- 스타일관련 -->
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.6/summernote.css" rel="stylesheet">
+<!-- 자바스크립트관련 -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.6/summernote.js"></script>
+<!-- 한글관련 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.6/lang/summernote-ko-KR.min.js"></script>
+{% endblock %}

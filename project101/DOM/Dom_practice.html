@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Practice</title>
+</head>
+<body>
+  <section>
+    <h3>DOM 기초부터 뿌셔뿌셔!!!!</h3>
+  </section>
+  <script>
+    const section = document.querySelector("section");
+    const h3 = document.querySelector("h3");
+    const h2 = document.createElement("h2");
+    h2.setAttribute("class", "title");
+    h2.textContent = 'JS로 타이틀을 만들어버렸습니다'
+    section.prepend(h2); 
+    // append : 자식 뒤에 붙임, prepend : 자식 앞에 붙임, appendChild (뒤에 붙임 - 모든 브라우저 호환)
+    // section.insertBefore(h2, h3);
+  </script>
+</body>
+</html>
