@@ -1,0 +1,9 @@
+{
+  "name": "typechain",
+  "version": "1.0.0",
+  "description": "It is the course for learning Typescript main blockchain",
+  "main": "index.js",
+  "repository": "https://github.com/appi123dk/side_project/typechain",
+  "author": "Paul (Park Kyung Gyu)",
+  "license": "MIT"
+}
