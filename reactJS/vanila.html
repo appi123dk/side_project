@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>click plus program</title>
+</head>
+
+<body>
+  <p>총 클릭수 : 0</p>
+  <button>클릭해주세요</button>
+
+</body>
+<script>
+  const button = document.querySelector("button"),
+    p = document.querySelector("p");
+  let num = 0;
+
+  const addNum = () => {
+    num++;
+    p.innerHTML = `총 클릭수 : ${num}`;
+  }
+
+  button.addEventListener("click", addNum);
+</script>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>click plus program</title>
+  </head>
+
+  <body>
+    <div id="root">
+
+    </div>
+  </body>
+
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+  
+
+  <!-- BABEL : Transform JSX to ReactDOM -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+
+    const Btn = ({btnName, changeValue}) => {
+      return <button 
+      onClick={changeValue}
+      style={{
+        backgroundColor: "tomato",
+        color: "white",
+        padding: "10px 20px",
+        border: 0,
+        borderRadius: 10
+      }}>{btnName}</button>
+    }
+
+    Btn.propTypes = {
+      btnName: PropTypes.string.isRequired,
+      changeValue: PropTypes.function
+    }
+
+
+    const App = () => {
+      const [value, setValue] = React.useState("단위 바꾸기");
+      const changeValue = () => setValue("되돌리기");
+      return (
+        <div>
+          <Btn btnName={value} changeValue={changeValue}/>
+          <Btn btnName="Change"/>
+        </div>
+      );
+    };
+
+    const root = document.querySelector("#root");
+    ReactDOM.render(<App />, root);
+
+  </script>
+</html>
