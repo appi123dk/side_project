@@ -4,8 +4,6 @@ function Todo(){
   const [todo, setTodo] = useState("");
   const [todos, setTodos] = useState([]);
 
-  
-
   function onChange(e){
     setTodo(e.target.value);
   }

@@ -36,13 +36,14 @@ function Coin(){
   return (
     <div>
       <h1>Coin Tracker!</h1>
-      {loading ? <strong>Loading...</strong> : null}
+      {loading ? <strong>Loading...</strong> : (
         <select onChange={changeCoin}>
           <option>원하는 코인을 선택하세요</option>
           {coins.map((coin) => 
             <option key={coin.id} data-symbol={coin.symbol} data-price={coin.quotes.USD.price}>{coin.name} : {coin.quotes.USD.price} USD</option>
           )}
         </select>
+      )}
       <br/>
       <h3>환전</h3>
       $ : <input type="number" onChange={onChange} value={dollar}/> 
