@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './Coin';
+import App from './Movie';
 
 ReactDOM.render(
   <React.StrictMode>
